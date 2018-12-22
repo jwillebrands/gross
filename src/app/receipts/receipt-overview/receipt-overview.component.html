@@ -1,0 +1,8 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" *ngFor="let month of months; let i = index" [routerLink]="[i]" routerLinkActive="active">{{month}}</a>
+    </div>
+</nav>
+<app-receipt-list *ngIf="receipts | async as page" [receipts]="page.data">
+
+</app-receipt-list>

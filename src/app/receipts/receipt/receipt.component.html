@@ -1,0 +1,13 @@
+<header class="card-header">
+  <h5 class="card-title">{{receipt.store}}</h5>
+  <h6 class="card-subtitle mb-2 text-muted">{{receipt.date | date:"dd-MM-yyyy"}}</h6>
+</header>
+<div class="card-body">
+  <div class="progress">
+    <div class="progress-bar" *ngFor="let category of receipt.costPerCategory()" 
+      [ngStyle]="{width: category[1] / receipt.totalCost() * 100 + '%'}">{{category[1] | currency:"EUR"}}</div>
+  </div>
+</div>
+<footer class="card-footer text-right">
+  {{receipt.totalCost() | currency:"EUR"}}
+</footer>
